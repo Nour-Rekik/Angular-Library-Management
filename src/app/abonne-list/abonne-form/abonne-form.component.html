@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2>Enregistrer un nouveau abonne </h2>
+      <form  #addCustomerForm="ngForm"  (ngSubmit)="SaveAbonne(addCustomerForm) ">
+        <label for="nom">Nom</label>
+     <input required id="nom" type="text" ngModel name="nom" class="form-control">
+  
+     <label for="prenom">Prenom</label>
+     <input required id="prenom" type="text" ngModel name="prenom" class="form-control">
+  
+     <label for="adresse">Adresse</label>
+     <input required id="adresse" type="text" ngModel name="adresse" class="form-control">
+     
+     <label for="photo">Photo</label>
+     <input required id="photo" type="text" ngModel name="photo" class="form-control">
+  
+     <label for="cin">Cin</label>
+     <input required id="cin" type="number" ngModel name="cin" class="form-control">
+
+     <label for="date_adhesion">Date d'adhesion</label>
+     <input required  id="date_adhesion" type="date" ngModel name="date_adhesion" class="form-control">
+  
+
+  
+     <label for="date_naiss">Date de naissance</label>
+     <input id="date_naiss" type="date" ngModel name="date_naiss" class="form-control">
+        <!--div class="form-group">
+            <h4>Ajouter une photo</h4>
+            <input type="file" (change)="detectFiles($event)"
+                   class="form-control" accept="image/*">
+            <p class="text-success" *ngIf="fiReactiveFormsModuleleUploaded">Fichier chargé !</p>
+        </div-->
+                <button class="btn btn-success" [disabled]="addCustomerForm.invalid"
+              type="submit" > Enregistrer abonne
+        </button>
+  
+      </form>
+    </div>
+  </div>
+  <!--<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2>Enregistrer un nouveau abonne </h2>
+      <form #formulaire='NgForm'>
+      <label for="nom">Nom</label>
+     <input required id="nom" type="text" ngModel name="nom" class="form-control">
+  
+     <label for="Prenom">Prenom</label>
+     <input required id="Prenom" type="text" ngModel name="Prenom" class="form-control">
+  
+     <label for="adresse">Adresse</label>
+     <input required id="adresse" type="text" ngModel name="adresse" class="form-control">
+  
+     <label for="date_adhesion">Date d'adhesion</label>
+     <input required  id="date_adhesion" type="date" ngModel name="date_adhesion" class="form-control">
+  
+     <label for="cin">Cin</label>
+     <input required id="cin" type="number" ngModel name="cin" class="form-control">
+  
+     <label for="date_naiss">Date de naissance</label>
+     <input id="date_naiss" type="text" ngModel name="date_naiss" class="form-control">
+  
+     <button [disabled]="formulaire.invalid" (click)="SaveAbonne(formulaire)" class="btn btn-primary">Enregistrer abonne</button>
+  
+     </form>
+    </div>
+</div>-->

@@ -1,0 +1,33 @@
+<div class="div-add-loan">
+    <fieldset>
+          <legend><b>{{titleSaveOrUpdate}}</b></legend>
+        <form #addLoanForm="ngForm" (ngSubmit)="saveLoan(addLoanForm)">
+           <span><label for="id_membre" class="loan-label">Id membre:</label><input name="id_membre" class="loan-input" type="number" 
+            required [(ngModel)]="simpleLoan.id_membre" [readonly]="disabledBackground"></span>
+           <span><label for="code_livre" class="loan-label">code_livre:</label><input name="code_livre" class="loan-input" 
+            type="number"  required [(ngModel)]="simpleLoan.code_livre"
+             [readonly]="disabledBackground"></span>
+           <span><label for="date_reservation" class="loan-label">date_reservation:</label>
+            <input name="date_reservation" class="loan-input" type="date" required [(ngModel)]="simpleLoan.date_reservation" 
+            [readonly]="disabledBackground" placeholder="DD/MM/YYYY">
+            <!--mat-datepicker-toggle matSuffix [for] = "myDatepicker1"></mat-datepicker-toggle-->
+            <!--mat-datepicker #myDatepicker1 [disabled]="disabledBackground"></mat-datepicker--></span>
+           <span>     <label for="date_retour" class="loan-label">date_retour:</label>
+             <input name="date_retour" class="loan-input" 
+             type="date" required [(ngModel)]="simpleLoan.date_retour" 
+             [readonly]="disabledBackground" placeholder="DD/MM/YYYY">
+             <!--mat-datepicker-toggle matSuffix [for] = "myDatepicker2"></mat-datepicker-toggle>
+             <mat-datepicker #myDatepicker2 [disabled]="disabledBackground"></mat-datepicker-->
+                <input [value]="actionButton" class="loan-submit-button" type=submit [disabled]="!addLoanForm.form.valid"/>
+                <p class="text-danger">{{ messageModal }}</p>
+           </span>
+        </form>
+        <button class="clear-form-button" (click)="clearForm(addLoanForm)" [disabled]="disabledBackground">Clear Form</button>
+    </fieldset>
+  </div>
+
+
+
+ 
+ 
+  <app-back-to-menu></app-back-to-menu>

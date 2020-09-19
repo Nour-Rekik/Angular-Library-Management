@@ -1,0 +1,53 @@
+<div class="div-search-loan" ng-disabled="disabledBackground"> 
+  <legend><b>Search customers</b></legend>
+
+<input type="text"
+[(ngModel)]="chaine"
+class ="form-control"
+(keyup)="search()"
+placeholder="enter the name ">
+<ol>
+<li class="list-group-item"
+*ngFor="let abonne of searchResult"
+(click)="onViewMembre(abonne.id)">
+
+{{ abonne.nom }}  {{ abonne.prenom }} 
+
+
+</li>
+
+</ol>
+</div>
+
+
+
+<div class="row">
+    <div class="col-xs-12">
+      <legend><b>Your customers</b></legend>
+
+      <div class="list-group">
+        <button
+          class="list-group-item"
+          *ngFor="let abonne of membres"
+          (click)="onViewMembre(abonne.id)">
+          <h3 class="list-group-item-heading">
+            <img
+    src="assets/images/{{abonne.photo}}"
+    alt="error"
+    width="50px"
+    height="50px"
+    class="rounded-circle"
+  >
+            {{ abonne.nom }}
+            {{ abonne.prenom }} 
+            <button class="btn btn-default pull-right" (click)="onDeleteMembre(abonne)">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+          </h3>
+          <p class="list-group-item-text"> {{ abonne.cin }}</p>
+        </button>
+      </div>
+      <button class="btn btn-primary" (click)="onNewMembre()">Nouveau membre</button>
+    </div>
+  </div>
+  

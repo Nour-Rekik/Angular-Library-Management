@@ -1,0 +1,31 @@
+{
+  "name": "emprunt",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "forceId": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "code_livre": {
+      "type": "number",
+      "required": true
+    },
+    "id_membre": {
+      "type": "number",
+      "required": true
+    },
+    "date_reservation": {
+      "type": "date",
+      "required": true
+    },
+    "date_retour": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

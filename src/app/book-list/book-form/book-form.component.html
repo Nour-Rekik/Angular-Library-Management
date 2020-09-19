@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2>Enregistrer un nouveau livre</h2>
+      <form #formulaire="ngForm" (ngSubmit)="onSaveBook(formulaire)">
+       
+          <label for="titre">Titre</label>
+          <input type="text" required id="titre"
+                 class="form-control" ngModel name="titre">
+        
+         <label for="auteurs">Auteur</label>
+          <input type="text" required id="auteurs"
+                 class="form-control" ngModel name="auteurs">
+        
+        
+        
+            <label for="code_R">code rayon</label>
+            <input type="number" required id="code_R"
+                   class="form-control" ngModel name="code_R">
+        
+            <label for="maison_edition">Maison d'édition </label>
+            <input type="text" required id="maison_edition"
+                   class="form-control" ngModel name="maison_edition">
+                   
+        
+                 <label for="photo">Photo</label>
+                 <input type="text" required id="photo"
+                        class="form-control" ngModel name="photo">
+               
+        
+        <!--<div class="form-group">
+            <h4>Ajouter une photo</h4>
+            <input type="file" (change)="detectFiles($event)"
+                   class="form-control" accept="image/*">
+            <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
+        </div>-->
+        <button class="btn btn-success" [disabled]="formulaire.invalid"  
+              type="submit" > Enregistrer
+        </button>
+  
+      </form>
+    </div>
+  </div>

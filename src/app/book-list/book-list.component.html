@@ -1,0 +1,116 @@
+  
+<!--div class="row">
+  <div class="col-md-6 col-sm-12">
+    <ul class="list-group">
+      <app-single-book
+        
+      ></app-single-book>
+    </ul>
+  </div>
+  <div class="col-md-6 col-sm-12">
+    <div class="card-container" 
+    *ngFor="let book of books" >
+      <div class="card">
+        <div class="front">
+          <div class="cover">
+            <img src="assets/images/rotating_card_thumb.jpg">
+          </div>
+          <div class="user">
+            <img class="img-circle" src="assets/images/{{book.photo}}">
+          </div>
+          <div class="content">
+            <div class="main">
+              <h3 class="titre">{{book.titre}} {{book.auteurs}}</h3>
+              <p class="maison_edition">{{book.maison_edition}}</p>
+              <p class="text-center">"blabla"</p>
+            </div>
+            <div class="footer">
+              <i class="fa fa-mail-forward"></i> Auto Rotation
+            </div>
+          </div>
+        </div--> <!-- end front panel -->
+        <!--div class="back">
+          <div class="header">
+            <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+          </div>
+          <div class="content">
+            <div class="main">
+              <h4 class="text-center">Job Description</h4>
+              <p class="text-center">Web design, Adobe Photoshop, HTML5, CSS3, Corel and many others...</p>
+    
+              <div class="stats-container">
+                <div class="stats">
+                  <h4>235</h4>
+                  <p>
+                    Followers
+                  </p>
+                </div>
+                <div class="stats">
+                  <h4>114</h4>
+                  <p>
+                    Following
+                  </p>
+                </div>
+                <div class="stats">
+                  <h4>35</h4>
+                  <p>
+                    Projects
+                  </p>
+                </div>
+              </div>
+    
+            </div>
+          </div>
+          <div class="footer">
+            <div class="social-links text-center">
+                <button class="btn btn-dark"  *ngFor="let book of books; let i = index"
+                (click)="onViewBook(i)">Détails</button>
+            </div>
+          </div>
+        </div--> <!-- end back panel -->
+      <!--/div--> <!-- end card -->
+    <!--/div>
+  </div>
+</div-->
+<div class="div-search-loan" ng-disabled="disabledBackground"> 
+  <legend><b>Search books</b></legend>
+
+<input type="text"
+[(ngModel)]="chaine"
+class ="form-control"
+(keyup)="search()"
+placeholder="enter the title ">
+<ol>
+<li class="list-group-item"
+*ngFor="let book of searchResult"
+(click)="onViewBook(book.id)">
+{{ book.auteurs}} 
+
+
+</li>
+
+</ol>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+      <legend><b>Your books</b></legend>
+      
+      <div class="list-group">
+        <button
+          class="list-group-item"
+          *ngFor="let book of books"
+          (click)="onViewBook( book.id )">
+          <h3 class="list-group-item-heading">
+            <img src="assets/images/{{ book.photo }}" width="50px" height="50px" class="rounded-circle align-content-center"  alt="error">
+        
+            {{ book.titre }}
+            <button class="btn btn-default pull-right" (click)="onDeleteBook(book)">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+          </h3>
+          <p class="list-group-item-text">{{ book.auteurs }}</p>
+        </button>
+      </div>
+      <button class="btn btn-primary" (click)="onNewBook()">Nouveau livre</button>
+    </div>
+  </div>

@@ -1,0 +1,22 @@
+{
+  "ids": {
+    "User": 2,
+    "AccessToken": 2,
+    "ACL": 1,
+    "RoleMapping": 1,
+    "Role": 1,
+    "Note": 1
+  },
+  "models": {
+    "User": {
+      "1": "{\"password\":\"$2a$10$4MfK1P455pLRZ9iceHncL.lBUZKFryX41tpEuAjPM0CRoY7D5haVm\",\"email\":\"rekiknour28@gmail.com\",\"id\":1}"
+    },
+    "AccessToken": {
+      "RmE3jhv5A8Xx0beVYa8HGUe5l27BMbvYzEa2Li6Od8YJO1bBE9sPjOT1AC8mhZyt": "{\"id\":\"RmE3jhv5A8Xx0beVYa8HGUe5l27BMbvYzEa2Li6Od8YJO1bBE9sPjOT1AC8mhZyt\",\"ttl\":1209600,\"created\":\"2020-09-05T15:42:03.027Z\",\"userId\":1}"
+    },
+    "ACL": {},
+    "RoleMapping": {},
+    "Role": {},
+    "Note": {}
+  }
+}

@@ -1,0 +1,100 @@
+<!--div class="div-search-loan" ng-disabled="disabledBackground"> 
+  <fieldset class="fieldset-search-loan">
+        <legend><b>Search Loans Form</b></legend>
+      <form #searchLoanForm="ngForm" (ngSubmit)="searchLoansByType(searchLoanForm)">
+         <label for="Search By" class="search-label">Search By:</label>
+         <select class="search-select" name="type" required [(ngModel)]="displayType">
+             <option *ngFor="let type of types" [value]="type">{{type}}</option></select>
+      
+             <ng-container *ngIf="displayType==='Id'"><label for="id" class="search-label">Id:</label>
+          <input name="id" class="search-input" type="number" 
+          required [(ngModel)]=id [readonly]="disabledBackground" >
+      </ng-container>
+      
+      <ng-container *ngIf="displayType==='Maximum date'"><label for="Maximum date" class="search-label">Maximum date:</label>
+          <input name="maxDate" class="search-input" type="date" required [(ngModel)]=maxDate 
+          [readonly]="disabledBackground" placeholder="DD/MM/YYYY"-->
+          <!--mat-datepicker-toggle class="search-matDatePicker3" matSuffix [for] = "myDatepicker3"></mat-datepicker-toggle-->
+          <!--mat-datepicker #myDatepicker3></mat-datepicker-->
+      <!--/ng-container>
+    
+       <input value="Search" class="search-submit-button" 
+       type=submit [disabled]="!searchLoanForm.form.valid" [readonly]="disabledBackground"/>
+      </form>
+      <br/><br/>
+      <ng-container *ngIf="isNoResult && !isFormSubmitted"><span class="span-no-result">No Result</span></ng-container>
+      <ng-container *ngIf="!isNoResult && isFormSubmitted">
+         <table>
+            <tr><th *ngFor="let head of headsTab">{{head}}</th><th></th><th></th></tr>
+            <tr class="" *ngFor="let loan of searchLoansResult">
+              <td>{{loan.id}}</td>
+              <td>{{loan.code_livre}}</td>
+              <td>{{loan.date_reservation | date:'dd/MM/yyyy'}}</td>
+              <td>{{loan.date_retour | date:'dd/MM/yyyy'}}</td>
+              <td><button value="Close" class="button-close-loan"
+                   (click)=closeLoan(loan) [disabled]="disabledBackground">Close Loan</button></td><td>
+                  <button *ngIf="true"
+                   [disabled]="disabledBackground"><img src="./assets/mail.png"/></button></td>
+            </tr>
+         </table>
+      </ng-container>
+  </fieldset>
+</div-->
+<div class="div-search-loan" ng-disabled="disabledBackground"> 
+  <legend><b>Search Loans</b></legend>
+  <label for="Search By" class="search-label">Search By:</label>
+  <select class="search-select" (change)="changeSuit($event)" required [(ngModel)]="selectedType">
+    <option [value]="DISPLAY_ID">id</option>
+    <option [value]="DISPLAY_DATE">date_reservation</option>
+  </select>
+
+  <ng-container *ngIf="displayType === 'Id'">  <label for="id" class="search-label">Id:</label>
+<input type="number"
+[(ngModel)]="chaine"
+class ="form-control"
+(keyup)="searchId()"
+placeholder="enter the id ">
+<ol>
+<li class="list-group-item"
+*ngFor="let emprunt of searchResult"
+(click)="onViewLoan(emprunt.id)">
+{{ emprunt.code_livre}} 
+</li>
+</ol>
+</ng-container>
+<ng-container *ngIf="displayType!=='Id'"> <label for="date_res" class="search-label"> Date_reservation :</label>
+<input type="date"
+[(ngModel)]="date"
+class ="form-control"
+(keyup)="searchDate()"
+placeholder="enter the date ">
+<ol>
+<li class="list-group-item"
+*ngFor="let emprunt of searchResult"
+(click)="onViewLoan(emprunt.id)">
+{{ emprunt.code_livre}} 
+</li>
+</ol>
+</ng-container>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+      <legend><b>Your Loans</b></legend>
+      <div class="list-group">
+        <button
+          class="list-group-item"
+          *ngFor="let emprunt of emprunts"
+          (click)="onViewLoan(emprunt.id)">
+          <h3 class="list-group-item-heading">
+            {{ emprunt.code_livre }}
+            <button class="btn btn-default pull-right" (click)="onDeleteLoan(emprunt)">
+              <span class="glyphicon glyphicon-minus"></span>
+            </button>
+          </h3>
+          <p class="list-group-item-text">{{ emprunt.id }}</p>
+        </button>
+      </div>
+      <button class="btn btn-primary" (click)="onNewLoan()"> Nouvelle emprunt </button>
+    </div>
+  </div>
+  
